@@ -1,4 +1,7 @@
-export class Plan {
+interface Price {
+  calculatePrice(): number
+}
+export class Plan implements Price {
   constructor(public name: string, public price: number) {}
 
   calculatePrice(): number {
@@ -6,7 +9,7 @@ export class Plan {
   }
 }
 
-export class Pack {
+export class Pack implements Price {
   private plans: Plan[] = [];
 
   addPlan(plan: Plan): void {
@@ -23,4 +26,3 @@ export class Pack {
     return totalPrice;
   }
 }
-
