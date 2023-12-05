@@ -17,12 +17,6 @@ export class Pack implements Price {
   }
 
   calculatePrice(): number {
-    let totalPrice = 0;
-
-    for (const plan of this.plans) {
-      totalPrice += plan.calculatePrice();
-    }
-
-    return totalPrice;
+    return this.plans.reduce((a, b) => a + b.calculatePrice(), 0)
   }
 }
